@@ -58,8 +58,8 @@ a {
   cursor: pointer;
 }
 #app {
-  height: 100svh;
-  width: 1366px;
+  min-height: 100svh;
+  max-width: 1366px;
   margin: 0 auto;
   background: var(--color-bg);
   color: var(--color-text);

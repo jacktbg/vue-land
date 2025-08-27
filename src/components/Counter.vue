@@ -56,6 +56,7 @@
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--space-xs);
     color: var(--color-text-inverse);
+    width: clamp(8rem, 10vw, 15rem);
   }
   .resetButton {
     background: var(--color-warning);
@@ -64,5 +65,6 @@
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--space-xs);
     color: var(--color-text-inverse);
+    width: clamp(8rem, 10vw, 15rem);
   }
 </style>
