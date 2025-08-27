@@ -1,19 +1,37 @@
 <script setup lang="ts">
   import { ref } from "vue"
 
-  const count = ref<number>(0)
+  defineOptions({
+    name: "Counter",
+  })
+
+  const props = withDefaults(
+    defineProps<{
+      start?: number
+    }>(),
+    {
+      start: 0,
+    }
+  )
+
+  const emit = defineEmits<{
+    (e: "update", delta: number): void
+  }>()
+
+  const count = ref<number>(props.start)
 
   const increment = () => {
     count.value++
+    emit("update", 1)
   }
 
   const reset = () => {
-    count.value = 0
+    count.value = props.start
   }
 </script>
 <template>
   <div :class="$style.container">
-    <h1 :class="$style.title">Counter</h1>
+    <h2 :class="$style.title">Counter</h2>
     <p :class="$style.counter">Count: {{ count }}</p>
     <button
       :class="$style.incrementButton"
@@ -44,7 +62,7 @@
     font-size: var(--font-size-xxl);
     font-weight: 600;
   }
-  .p {
+  .counter {
     font-size: var(--font-size-md);
     color: var(--color-text-muted);
     font-weight: 300;
