@@ -1,0 +1,67 @@
+:root {
+  /* Backgrounds */
+  --color-bg: #0f1115; /* main background */
+  --color-bg-alt: #1a1c20; /* secondary sections, cards */
+  /* Primary (Neutral Professional) */
+  --color-primary: #3a7ca5; /* buttons, links */
+  --color-primary-hover: #4d9ed4;
+  /* Secondary (Tech Accent) */
+  --color-secondary: #6bbf9d; /* highlights, call-to-actions */
+  --color-secondary-hover: #85d4b5;
+  /* Text */
+  --color-text: #e6e6e6; /* default */
+  --color-text-muted: #a0a0a0;
+  --color-text-inverse: #0f1115;
+  /* Borders/Lines */
+  --color-border: #2a2d32;
+  /* Alerts */
+  --color-success: #4caf50;
+  --color-warning: #f9a825;
+  --color-error: #ef5350;
+  /* Spacing (scale using clamp for responsiveness) */
+  --space-xs: clamp(0.25rem, 0.5vw, 0.5rem);
+  --space-sm: clamp(0.5rem, 0.8vw, 1rem);
+  --space-md: clamp(1rem, 1.5vw, 2rem);
+  --space-lg: clamp(2rem, 2.5vw, 3rem);
+  --space-xl: clamp(3rem, 4vw, 5rem);
+  /* Typography scale */
+  --font-size-xs: clamp(0.75rem, 0.9vw, 0.85rem);
+  --font-size-sm: clamp(0.875rem, 1vw, 1rem);
+  --font-size-md: clamp(1rem, 1.2vw, 1.125rem);
+  --font-size-lg: clamp(1.25rem, 1.8vw, 1.5rem);
+  --font-size-xl: clamp(1.5rem, 2.5vw, 2rem);
+  --font-size-xxl: clamp(2rem, 3.5vw, 3rem);
+  /* Font family */
+  --font-sans: "Inter", "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Fira Code", monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background-color: var(--color-bg);
+  width: 100%;
+  height: 100svh;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+#app {
+  height: 100svh;
+  width: 1366px;
+  margin: 0 auto;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
