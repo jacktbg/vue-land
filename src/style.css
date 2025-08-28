@@ -2,6 +2,11 @@
   /* Backgrounds */
   --color-bg: #0f1115; /* main background */
   --color-bg-alt: #1a1c20; /* secondary sections, cards */
+  --color-hover: linear-gradient(
+    90deg,
+    rgb(26, 28, 32, 0) 0%,
+    rgb(77, 158, 212, 0.1) 100%
+  );
   /* Primary (Neutral Professional) */
   --color-primary: #3a7ca5; /* buttons, links */
   --color-primary-hover: #4d9ed4;
@@ -55,7 +60,8 @@ body {
 }
 
 button,
-a {
+a,
+li {
   cursor: pointer;
 }
 #app {
