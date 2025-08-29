@@ -50,13 +50,10 @@
     justify-content: center;
     align-items: center;
     gap: var(--space-md);
-  }
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-md);
+    width: clamp(12rem, 22vw, 20rem);
+    aspect-ratio: 1/1;
+    background: var(--color-bg-alt);
+    border-radius: var(--space-md);
   }
   .title {
     font-size: var(--font-size-xxl);

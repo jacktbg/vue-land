@@ -1,13 +1,13 @@
-<!-- <script setup lang="ts">
+<script setup lang="ts">
   import { computed, ref } from "vue"
   import Counter from "../components/Counter.vue"
 
-  type Counter = {
+  type CounterItem = {
     id: number
     value: number
   }
 
-  const counters = ref<Counter[]>([])
+  const counters = ref<CounterItem[]>([])
   let nextId = 1
   const addCounter = () => {
     counters.value.push({
@@ -34,10 +34,23 @@
 <template>
   <div :class="$style.container">
     <h1 :class="$style.title">Multi Counter Dashboard</h1>
-    <h2 :class="$style.counter"
-      >Total Count: {{ total }}
-    </h2>
-    <Counter :start="5" @update="handleUpdate" />
+
+    <button :class="$style.addButton" @click="addCounter">
+      ➕ Add Counter
+    </button>
+
+    <h2 :class="$style.total">Total: {{ total }}</h2>
+
+    <div :class="$style.grid">
+      <Counter
+        v-for="c in counters"
+        :key="c.id"
+        :id="c.id"
+        :start="c.value"
+        @update="(val) => updateCounter(c.id, val)"
+        @remove="removeCounter(c.id)"
+      />
+    </div>
   </div>
 </template>
 
@@ -45,14 +58,29 @@
   .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100vh;
     gap: var(--space-md);
+    width: 80%;
   }
   .title {
-    color: var(--color-primary);
     font-size: var(--font-size-3xl);
+    color: var(--color-primary);
   }
-</style> -->
+  .addButton {
+    background: var(--color-secondary);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--space-xs);
+    color: var(--color-text-inverse);
+    font-weight: bold;
+  }
+  .total {
+    color: var(--color-success);
+    font-size: var(--font-size-xl);
+  }
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: center;
+  }
+</style>

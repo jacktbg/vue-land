@@ -1,7 +1,13 @@
 <script setup lang="ts">
   import Icon from "./Icon.vue"
 
-  const options: string[] = ["Counter", "Dashboard"]
+  const props = defineProps<{
+    active: string
+  }>()
+  const emit = defineEmits<{
+    (e: "active", option: string): void
+  }>()
+  const options: string[] = ["home", "dashboard"]
 </script>
 
 <template>
@@ -14,7 +20,11 @@
         <li
           v-for="(option, index) in options"
           :key="index"
-          :class="s.option"
+          :class="[
+            s.option,
+            { [s.active]: option === props.active },
+          ]"
+          @click="emit('active', option)"
           >{{ option }}</li
         >
       </ul>
@@ -62,10 +72,13 @@
     text-transform: uppercase;
   }
   .option:hover {
+    color: var(--color-primary-hover);
+  }
+  .option:active {
     background: var(--color-hover);
   }
-  .option:active,
-  .option.active {
-    color: var(--color-primary-hover);
+  .active {
+    background: var(--color-hover);
+    color: var(--color-primary);
   }
 </style>

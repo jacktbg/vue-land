@@ -19,12 +19,13 @@
 
 <style module>
   .container {
+    align-self: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 80%;
-    height: 100vh;
+    height: 95%;
     gap: var(--space-md);
   }
   .title {
