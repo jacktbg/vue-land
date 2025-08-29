@@ -15,7 +15,7 @@
 
   const emit = defineEmits<{
     (e: "update", value: number): void
-    (e: "remove", id: number): void
+    (e: "remove"): void
   }>()
 
   const count = ref(props.start)
@@ -31,7 +31,7 @@
   }
 
   const remove = () => {
-    emit("remove", props.id)
+    emit("remove")
   }
 
   watch(

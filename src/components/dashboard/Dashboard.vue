@@ -25,7 +25,6 @@
     const counter = counters.value.find((c) => c.id === id)
     if (counter) counter.value = newValue
   }
-
   const total = computed(() =>
     counters.value.reduce((acc, c) => acc + c.value, 0)
   )
