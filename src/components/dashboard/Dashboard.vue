@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed, ref } from "vue"
-  import Counter from "../components/Counter.vue"
+  import Counter from "../home/Counter.vue"
 
   type CounterItem = {
     id: number

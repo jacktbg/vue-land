@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import { ref } from "vue"
-  import Dashboard from "./components/Dashboard.vue"
-  import Home from "./components/Home.vue"
-  import Sidebar from "./components/Sidebar.vue"
+  import Dashboard from "./components/dashboard/Dashboard.vue"
+  import Home from "./components/home/Home.vue"
+  import Sidebar from "./components/sidebar/Sidebar.vue"
 
   const active = ref<string>("home")
 

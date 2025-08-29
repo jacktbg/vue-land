@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { ref } from "vue"
-  import Counter from "../components/Counter.vue"
+  import Counter from "./Counter.vue"
 
   const total = ref<number>(0)
   const handleUpdate = (delta: number) => {
