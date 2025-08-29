@@ -3,17 +3,22 @@
 
   defineOptions({ name: "Counter" })
 
-  const props = defineProps<{
-    id: number
-    start?: number
-  }>()
+  const props = withDefaults(
+    defineProps<{
+      id: number
+      start?: number
+    }>(),
+    {
+      start: 0,
+    }
+  )
 
   const emit = defineEmits<{
     (e: "update", value: number): void
-    (e: "remove"): void
+    (e: "remove", id: number): void
   }>()
 
-  const count = ref(props.start ?? 0)
+  const count = ref(props.start)
 
   const increment = () => {
     count.value++
@@ -21,15 +26,14 @@
   }
 
   const reset = () => {
-    count.value = props.start ?? 0
+    count.value = props.start
     emit("update", count.value)
   }
 
   const remove = () => {
-    emit("remove")
+    emit("remove", props.id)
   }
 
-  // 🔍 keep parent in sync if "start" changes externally
   watch(
     () => props.start,
     (newVal) => {
@@ -64,8 +68,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: var(--space-md);
-    width: clamp(12rem, 22vw, 30rem);
+    gap: var(--space-sm);
+    width: clamp(12rem, 18vw, 30rem);
     aspect-ratio: 1/1;
     background: var(--color-bg-alt);
     border-radius: var(--space-md);
@@ -85,9 +89,9 @@
     color: var(--color-text-inverse);
     font-size: var(--font-size-md);
     font-weight: 700;
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--space-xs) var(--space-md);
     border-radius: var(--space-xs);
-    width: clamp(8rem, 10vw, 15rem);
+    width: clamp(8rem, 8vw, 15rem);
   }
 
   .incrementButton {
