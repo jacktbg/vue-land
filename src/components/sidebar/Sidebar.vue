@@ -51,7 +51,7 @@
   .image {
     width: 90%;
     aspect-ratio: 1/1;
-    color: var(--color-primary);
+    color: var(--color-text);
   }
   .nav {
     width: 100%;
@@ -70,6 +70,8 @@
     width: 100%;
     padding: 0 var(--space-lg);
     text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-text-muted);
   }
   .option:hover {
     color: var(--color-primary-hover);
