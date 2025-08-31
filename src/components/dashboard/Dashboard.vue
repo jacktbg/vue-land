@@ -8,6 +8,7 @@
   }
 
   const counters = ref<CounterItem[]>([])
+  const resetValue = ref(0)
 
   let nextId = 1
 
@@ -28,6 +29,10 @@
   const total = computed(() =>
     counters.value.reduce((acc, c) => acc + c.value, 0)
   )
+
+  const resetAll = () => {
+    resetValue.value++
+  }
 </script>
 
 <template>
@@ -37,6 +42,9 @@
     <button :class="$style.addButton" @click="addCounter">
       Add Counter
     </button>
+    <button :class="$style.resetButton" @click="resetAll"
+      >Reset All</button
+    >
 
     <h2 :class="$style.total">Total: {{ total }}</h2>
 
@@ -46,6 +54,7 @@
         :key="c.id"
         :id="c.id"
         :start="0"
+        :reset-value="resetValue"
         @update="(val) => updateCounter(c.id, val)"
         @remove="removeCounter(c.id)"
       />
@@ -74,12 +83,18 @@
     font-size: var(--font-size-3xl);
     color: var(--color-primary);
   }
-  .addButton {
-    background: var(--color-secondary);
+  .addButton,
+  .resetButton {
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--space-xs);
     color: var(--color-text-inverse);
     font-weight: bold;
+  }
+  .addButton {
+    background: var(--color-primary);
+  }
+  .resetButton {
+    background: var(--color-secondary);
   }
   .total {
     color: var(--color-success);

@@ -7,9 +7,11 @@
     defineProps<{
       id: number
       start?: number
+      resetValue: number
     }>(),
     {
       start: 0,
+      resetValue: 0,
     }
   )
 
@@ -35,9 +37,9 @@
   }
 
   watch(
-    () => props.start,
-    (newVal) => {
-      if (newVal !== undefined) count.value = newVal
+    () => props.resetValue,
+    () => {
+      reset()
     }
   )
 </script>
