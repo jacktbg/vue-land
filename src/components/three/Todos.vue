@@ -4,7 +4,7 @@
 
 <template>
   <div :class="s.container">
-    <h1 :class="s.title">Todo App</h1>
+    <h1 :class="s.title">Todo List App</h1>
     <Header />
   </div>
 </template>

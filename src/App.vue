@@ -3,7 +3,7 @@
   import Dashboard from "./components/two/Dashboard.vue"
   import Home from "./components/one/Home.vue"
   import Sidebar from "./components/sidebar/Sidebar.vue"
-  import Todo from "./components/three/Todo.vue"
+  import Todos from "./components/three/Todos.vue"
 
   const active = ref<string>("home")
 
@@ -16,7 +16,7 @@
     <Sidebar :active="active" @active="handleActive" />
     <Home v-if="active === 'home'" />
     <Dashboard v-else-if="active === 'dashboard'" />
-    <Todo v-else-if="active === 'todo'" />
+    <Todos v-else-if="active === 'todo'" />
   </div>
 </template>
 
