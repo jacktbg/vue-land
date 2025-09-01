@@ -7,7 +7,7 @@
   const emit = defineEmits<{
     (e: "active", option: string): void
   }>()
-  const options: string[] = ["home", "dashboard"]
+  const options: string[] = ["home", "dashboard", "todo"]
 </script>
 
 <template>
