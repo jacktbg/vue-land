@@ -25,7 +25,7 @@
             { [s.active]: option === props.active },
           ]"
           @click="emit('active', option)"
-          >{{ option }}</li
+          >exercise {{ index + 1 }}</li
         >
       </ul>
     </nav>
