@@ -30,7 +30,7 @@
   --space-lg: clamp(2rem, 2.5vw, 3rem);
   --space-xl: clamp(3rem, 4vw, 5rem);
   /* Typography scale */
-  --font-size-xs: clamp(0.75rem, 0.9vw, 0.85rem);
+  --font-size-xs: clamp(0.75rlgem, 0.9vw, 0.85rem);
   --font-size-sm: clamp(0.875rem, 1vw, 1rem);
   --font-size-md: clamp(1rem, 1.2vw, 1.125rem);
   --font-size-lg: clamp(1.25rem, 1.8vw, 1.5rem);
