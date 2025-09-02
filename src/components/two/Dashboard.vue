@@ -89,6 +89,7 @@
     border-radius: var(--space-xs);
     color: var(--color-text-inverse);
     font-weight: bold;
+    font-size: var(--font-size-md);
   }
   .addButton {
     background: var(--color-primary);

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const categories = ["---", "work", "home", "personal"]
+  const categories = ["---", "Work", "Home", "Personal"]
 </script>
 
 <template>
@@ -24,28 +24,46 @@
   .form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: var(--space-md);
-    width: 30%;
+    width: 40%;
+    background: var(--color-bg-alt);
+    height: 20%;
+    border-radius: var(--space-md);
   }
 
   .input {
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--space-xs);
+    background: var(--color-secondary);
+    color: var(--color-text-inverse);
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    width: 80%;
   }
 
   .wrapper {
     display: flex;
+    width: 80%;
     justify-content: space-between;
   }
 
   .options {
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--space-xs);
-    background: var(--color-bg-alt);
+    background: var(--color-success);
+    color: var(--color-text-inverse);
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    text-transform: capitalize;
   }
   .option {
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--space-xs);
+    font-weight: bold;
+    font-size: var(--font-size-md);
+    text-transform: capitalize;
   }
   .button {
     padding: var(--space-sm) var(--space-md);
@@ -53,5 +71,6 @@
     background: var(--color-primary);
     color: var(--color-text-inverse);
     font-weight: bold;
+    font-size: var(--font-size-md);
   }
 </style>

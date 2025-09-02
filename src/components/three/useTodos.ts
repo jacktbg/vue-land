@@ -1,11 +1,5 @@
 import { onMounted, reactive, watch } from "vue"
-
-type Todo = {
-  id: number
-  text: string
-  done: boolean
-  category: string
-}
+import type { Todo } from "./types"
 
 export const useTodos = () => {
   const state = reactive<{ todos: Todo[] }>({

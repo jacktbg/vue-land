@@ -1,11 +1,13 @@
 <script setup lang="ts">
   import Header from "./Header.vue"
+  import Table from "./Table.vue"
 </script>
 
 <template>
   <div :class="s.container">
     <h1 :class="s.title">Todo List App</h1>
     <Header />
+    <Table />
   </div>
 </template>
 
@@ -18,7 +20,6 @@
     gap: var(--space-lg);
     width: 80%;
     height: 95%;
-    padding: var(--space-md) 0;
   }
 
   .title {
