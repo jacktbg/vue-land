@@ -1,12 +1,17 @@
 <script setup lang="ts">
-  import Header from "./Header.vue"
+  import { computed } from "vue"
+  import Form from "./Form.vue"
   import Table from "./Table.vue"
+  import { useTodos } from "./useTodos"
+
+  const { state } = useTodos()
+  const total = computed(() => state.todos.length)
 </script>
 
 <template>
   <div :class="s.container">
-    <h1 :class="s.title">Todo List App</h1>
-    <Header />
+    <h1 :class="s.title">Todo List App: {{ total }}</h1>
+    <Form />
     <Table />
   </div>
 </template>

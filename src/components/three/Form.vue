@@ -1,12 +1,35 @@
 <script setup lang="ts">
-  const categories = ["---", "Work", "Home", "Personal"]
+  import { ref } from "vue"
+  import { useTodos } from "./useTodos"
+
+  const categories = ["Work", "Home", "Personal"]
+  const { addTodo } = useTodos()
+  const newTodo = ref<string>("")
+  const selectedCategory = ref<string>("Work")
+
+  const add = () => {
+    if (newTodo.value.trim()) {
+      addTodo(newTodo.value, selectedCategory.value)
+      newTodo.value = ""
+    }
+  }
 </script>
 
 <template>
   <form :class="s.form">
-    <input type="text" :class="s.input" />
+    <input
+      type="text"
+      :class="s.input"
+      v-model="newTodo"
+      placeholder="New todo..."
+    />
     <div :class="s.wrapper">
-      <select name="" id="" :class="s.options">
+      <select
+        name=""
+        id=""
+        :class="s.options"
+        v-model="selectedCategory"
+      >
         <option
           v-for="c in categories"
           :key="c"
@@ -15,7 +38,9 @@
           >{{ c }}</option
         >
       </select>
-      <button :class="s.button" type="button">Add</button>
+      <button :class="s.button" type="button" @click="add"
+        >Add</button
+      >
     </div>
   </form>
 </template>
