@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed, ref } from "vue"
-  import Card from "./Card.vue"
+  import CounterCard from "./CounterCard.vue"
 
   type CounterItem = {
     id: number
@@ -49,7 +49,7 @@
     <h2 :class="$style.total">Total: {{ total }}</h2>
 
     <div :class="$style.grid">
-      <Card
+      <CounterCard
         v-for="c in counters"
         :key="c.id"
         :id="c.id"

@@ -3,7 +3,7 @@
   import { useTodos } from "./useTodos"
 
   const categories = ["Work", "Home", "Personal"]
-  const { addTodo } = useTodos()
+  const { state, addTodo } = useTodos()
   const newTodo = ref<string>("")
   const selectedCategory = ref<string>("Work")
 
@@ -11,12 +11,13 @@
     if (newTodo.value.trim()) {
       addTodo(newTodo.value, selectedCategory.value)
       newTodo.value = ""
+      console.log(state.todos)
     }
   }
 </script>
 
 <template>
-  <form :class="s.form">
+  <form :class="s.form" @submit.prevent="add">
     <input
       type="text"
       :class="s.input"
@@ -24,12 +25,7 @@
       placeholder="New todo..."
     />
     <div :class="s.wrapper">
-      <select
-        name=""
-        id=""
-        :class="s.options"
-        v-model="selectedCategory"
-      >
+      <select :class="s.options" v-model="selectedCategory">
         <option
           v-for="c in categories"
           :key="c"
@@ -97,5 +93,8 @@
     color: var(--color-text-inverse);
     font-weight: bold;
     font-size: var(--font-size-md);
+  }
+  .button:hover {
+    background: var(--color-primary-hover);
   }
 </style>

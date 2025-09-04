@@ -1,17 +1,24 @@
 <script setup lang="ts">
-  // import { useTodos } from "./useTodos"
+  import TodoCard from "./TodoCard.vue"
+  import { useTodos } from "./useTodos"
+  import TableHeader from "./TableHeader.vue"
 
-  // const { state, addTodo, toggleTodo, removeTodo } =
-  //   useTodos()
-
+  const { state } = useTodos()
   const categories: string[] = ["work", "home", "personal"]
 </script>
 
 <template>
   <div :class="s.container">
-    <div :class="s.column" v-for="c in categories">
-      <h2 :class="s.title"> {{ c }}</h2>
-      <div :class="s.items"></div>
+    <TableHeader />
+    <div :class="s.body">
+      <div :class="s.column" v-for="c in categories">
+        <h3 :class="s.title"> {{ c }}</h3>
+        <TodoCard
+          v-for="todo in state.todos"
+          :key="todo.id"
+          :todo="todo"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -19,10 +26,18 @@
 <style module="s">
   .container {
     display: flex;
+    flex-direction: column;
     flex: 1;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
     width: 100%;
     padding-left: var(--space-md);
+  }
+
+  .body {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: var(--space-lg);
   }
 
   .column {
@@ -35,13 +50,9 @@
   }
   .title {
     position: fixed;
-    color: var(--color-primary);
+    color: var(--color-text);
     font-size: var(--font-size-xl);
     text-transform: capitalize;
-  }
-
-  .items {
-    display: flex;
-    gap: var(--space-md);
+    font-weight: 400;
   }
 </style>
